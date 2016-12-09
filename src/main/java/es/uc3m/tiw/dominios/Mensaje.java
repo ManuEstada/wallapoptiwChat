@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 //import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,15 +28,16 @@ public class Mensaje implements Serializable{
     private Long id;
 	@Column(nullable = false, length = 300)
     private String mensaje;
-	/*@OneToOne
-    private Cliente from;
-    @OneToOne
-    private Cliente to;*/
+	@Column
+    private String correoOrigen;
+	@Column
+    private String correoDestino;
     
-    public Mensaje(Long id, String mensaje) {
+    public Mensaje(String mensaje, String correoOrigen, String correoDestino) {
 		super();
-		this.id = id;
 		this.mensaje = mensaje;
+		this.correoOrigen = correoOrigen;
+		this.correoDestino = correoDestino;
 	}
     
     public Mensaje() {
@@ -54,5 +56,23 @@ public class Mensaje implements Serializable{
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
+
+	public String getCorreoOrigen() {
+		return correoOrigen;
+	}
+
+	public void setCorreoOrigen(String correoOrigen) {
+		this.correoOrigen = correoOrigen;
+	}
+
+	public String getCorreoDestino() {
+		return correoDestino;
+	}
+
+	public void setCorreoDestino(String correoDestino) {
+		this.correoDestino = correoDestino;
+	}
+
+
 
 }
