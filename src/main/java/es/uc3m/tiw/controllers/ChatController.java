@@ -19,12 +19,13 @@ import es.uc3m.tiw.dominios.Mensaje;
 public class ChatController {
 	
 	@Autowired
-	private ChatRepository repository;
+	private ChatRepository repository1;
+	
 	
 	
 	@RequestMapping(value="/listarMensajes", method=RequestMethod.GET)
 	public List<Mensaje> getMensajes(){
-		List<Mensaje> lista = repository.findAll();
+		List<Mensaje> lista = repository1.findAll();
 		if (lista.isEmpty()){
 			return null;
 		}
@@ -33,7 +34,10 @@ public class ChatController {
 	
 	@RequestMapping(value = "/guardarMensaje", method = RequestMethod.POST)
 	public void crearMensaje(@RequestBody Mensaje mensaje){
-		repository.saveAndFlush(mensaje);
+		repository1.saveAndFlush(mensaje);
+			
 	}
+	
+
 
 }
