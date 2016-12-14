@@ -24,9 +24,13 @@ public class WallapoptiwChatApplication {
 	@PostConstruct
 	public void init() {
 		
-		Mensaje mensaje1 = new Mensaje("ESTO ES UN MENSAJE DE PRUEBA","MANUEL@HOTMAIL.COM","CAROLINA@HOTMAIL.COM");
+		Mensaje mensaje1 = new Mensaje("MENSAJE DE PRUEBA 1","manuel@hotmail.com","carolina@hotmail.com");
+		Mensaje mensaje2 = new Mensaje("MENSAJE DE PRUEBA 2","otrosin@hotmail.com","carolina@hotmail.com");
+		Mensaje mensaje3 = new Mensaje("MENSAJE DE PRUEBA 3","carolina@hotmail.com","manuel@hotmail.com");
 		
 		repository.saveAndFlush(mensaje1);
+		repository.saveAndFlush(mensaje2);
+		repository.saveAndFlush(mensaje3);
 		
 	}
 }
